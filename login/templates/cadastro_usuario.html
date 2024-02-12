@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+
+{% block title  %}Cadastro de Usuario{% endblock  %}
+{% block content %}
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col-4">
+        
+      </div>
+      <div class="col-4">
+        <h1>Cadastro de novo Usuario</h1>
+        <form  action="{% url 'cadastro_usuario' %}" method="POST">
+            {% csrf_token %}
+            <input class="form-control me-2" type="text" placeholder="Login" name='loginUsuarioCadastro' style="margin: 6px;">
+
+            <input class="form-control me-2" type="password" placeholder="Senha" name="senhaUsuarioCadastro" style="margin: 6px"><br>
+            <button class="btn btn-outline-success" type="submit">Login</button>
+          </form>
+      </div>
+      <div class="col4">
+        
+      </div>
+    </div>
+  </div>
+
+{% endblock  %}

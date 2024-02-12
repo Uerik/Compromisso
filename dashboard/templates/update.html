@@ -1,0 +1,39 @@
+{% extends "master.html" %}
+
+{% block title %}Update New{% endblock  %}
+{% block content %}
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col-4">
+        
+      </div>
+      <div class="col-4">
+        <h1>Atualizando novo compromisso</h1>
+        {%for i in basicoCompromisso%}
+            {%if i.id == compromissoId.id%}
+                <form  action="{% url 'update_item' i.id %}" method="POST">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="text" placeholder="{{i.oque}}" name='oquecadastro'></br>
+                    <input class="form-control me-2" type="text" placeholder="{{i.onde}}" name='ondecadastro'></br>
+                    <input class="form-control me-2" type="date" placeholder="{{i.dia}}" name='quediacadastro'></br>
+                    <input class="form-control me-2" type="text" placeholder="{{i.comQuem}}" name='comquemcadastro'></br>
+                    <input class="form-control me-2" type="text" placeholder="{{i.obs}}" name='obscadastro'></br>
+                    
+                    <input class="form-control me-2" type="hidden" value="{{request.user.id}}" name='usuarioidcadastro'></br>
+
+                    <button class="btn btn-outline-success" type="submit">Novo Compromisso</button>
+                </form>
+            {%endif%}
+        {%endfor%}
+      </div>
+      <div class="col-4">
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+{% endblock  %}
